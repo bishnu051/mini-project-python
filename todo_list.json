@@ -1,5 +1,15 @@
 [
     {
+        "description": "pay internet bills",
+        "priority": "High",
+        "deadline": "2025-02-28"
+    },
+    {
+        "description": "Grocery shopping 2",
+        "priority": "High",
+        "deadline": "2025-03-05"
+    },
+    {
         "description": "Grocery shopping",
         "priority": "Low",
         "deadline": "2025-03-05"
@@ -13,10 +23,5 @@
         "description": "Submit report",
         "priority": "Medium",
         "deadline": "2025-05-05"
-    },
-    {
-        "description": "Doctor appointment",
-        "priority": "High",
-        "deadline": "2025-05-08"
     }
 ]

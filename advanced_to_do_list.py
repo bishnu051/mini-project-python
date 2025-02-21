@@ -10,6 +10,7 @@ to_do_list = [
     {"description": "Submit report", "priority": "Medium", "deadline": date_conversion("2025-05-05")},
     {"description": "Doctor appointment", "priority": "High", "deadline": date_conversion("2025-05-08")},
     {"description": "Grocery shopping", "priority": "Low", "deadline": date_conversion("2025-03-05")},
+    {"description": "Grocery shopping 2", "priority": "High", "deadline": date_conversion("2025-03-05")},
     {"description": "Finish assignment", "priority": "High", "deadline": date_conversion("2025-03-08")}
 ]
 
@@ -81,7 +82,7 @@ def get_deadline():
 
 
 def add_task():
-    task = input("Enter the task or '0' to cancel: ")
+    task = input("Enter the task name or '0' to cancel: ")
     if task == "0":
         print("Add task cancelled.")
         return
@@ -123,7 +124,8 @@ def view_completed_tasks():
 
 
 def remove_task():
-    view_tasks()
+    for count, task in enumerate(to_do_list, start=1):
+        print(f"{count}. {task['description']} - {task['priority']} - {task['deadline']}")
 
     while True:
         task_to_remove = input("Enter the task number to remove or '0' to cancel: ")
@@ -157,7 +159,8 @@ def suggest_task():
         print(f"{i}. {task['description']} - {task['priority']}, - {task['deadline']}")
 
 def mark_task_as_complete():
-    view_tasks()
+    for count, task in enumerate(to_do_list, start=1):
+        print(f"{count}. {task['description']} - {task['priority']} - {task['deadline']}")
 
     while True:
         task_to_complete = input("Enter the task number to mark completed or '0' to cancel.")
@@ -188,6 +191,7 @@ def clear_completed_tasks():
 # Main function to drive the program
 def main():
     while True:
+        print()
         print("Advanced To-Do List Application")
         print("1. Add Task")
         print("2. Remove Task")
@@ -197,6 +201,7 @@ def main():
         print("6. Clear completed tasks")
         print("7. Save list as a file")
         print("8. Exit")
+
 
         choice = input("Enter your choice: ")
 
