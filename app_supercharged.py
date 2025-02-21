@@ -39,27 +39,6 @@ while True:
             except ValueError:
                 print("Invalid input, please enter a number (1, 2, or 3)")
 
-
-        while True:
-            print("Enter deadline for this task")
-
-            deadline = input("Enter deadline (YYYY-MM-DD): ")
-
-            try:
-                deadline_date = datetime.strptime(deadline, "%Y-%m-%d").date()
-                today_date = datetime.today().date()
-
-                # Check if deadline is in the future
-                if deadline_date > today_date:
-                    tasks.append((task, priority, deadline_date))
-                    print(f"'{task}' with priority '{priority_map[priority-1]}' and deadline '{deadline_date}' has been added to to-do-list")
-                    break
-                else:
-                    print("Invalid choice: Deadline must be in the future. Try again.")
-            except ValueError:
-                print("Invalid input: Please enter the date in YYYY-MM-DD format.")
-
-
     elif choice == "2":
         try:
             for i, (task, priority, deadline) in enumerate(tasks, start=1):

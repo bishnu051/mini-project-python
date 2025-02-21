@@ -1,0 +1,22 @@
+[
+    {
+        "description": "Grocery shopping",
+        "priority": "Low",
+        "deadline": "2025-03-05"
+    },
+    {
+        "description": "Finish assignment",
+        "priority": "High",
+        "deadline": "2025-03-08"
+    },
+    {
+        "description": "Submit report",
+        "priority": "Medium",
+        "deadline": "2025-05-05"
+    },
+    {
+        "description": "Doctor appointment",
+        "priority": "High",
+        "deadline": "2025-05-08"
+    }
+]
