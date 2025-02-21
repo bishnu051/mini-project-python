@@ -19,6 +19,8 @@ while True:
 
     elif choice == "2":
         try:
+            for i, task in enumerate(tasks, start=1):
+                print(f"{i}. {task}")
             task_num = int(input("Enter the number of the task to remove: "))
             tasks.pop(task_num - 1)
         except (ValueError, IndexError):
