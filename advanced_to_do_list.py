@@ -2,8 +2,10 @@
 import json
 from datetime import datetime
 
+#function to convert string to python readable date format
 def date_conversion(date): return datetime.strptime(date, "%Y-%m-%d").date()
 
+#dummy  list for debugging
 to_do_list = [
     {"description": "Submit report", "priority": "Medium", "deadline": date_conversion("2025-05-05")},
     {"description": "Doctor appointment", "priority": "High", "deadline": date_conversion("2025-05-08")},
@@ -11,23 +13,28 @@ to_do_list = [
     {"description": "Finish assignment", "priority": "High", "deadline": date_conversion("2025-03-08")}
 ]
 
+#list for completed tasks
 completed_tasks = []
 
+#function for sorting tasks based on deadline first and then by priority
 def sort_tasks():
     return sorted(
         to_do_list,
-        key=lambda x: (x["deadline"], -priority_map.index(x["priority"]))  # Sort by date first, then priority
+        key=lambda x: (x["deadline"], -priority_map.index(x["priority"]))
     )
 
-
+#priority mapping from integer to string for display
 priority_map = ("Low", "Medium", "High")
 
+#function to save list as json file
 def save_to_file(filename="todo_list.json"):
     sorted_tasks = sort_tasks()
+
     with open(filename, "w") as file:
         json.dump(sorted_tasks, file, default=str, indent=4)  # Convert dates to strings
     print("To-Do List saved as json successfully!")
 
+#priority handling function, returns priority string based on integer input
 def add_priority():
     while True:
         print("Enter priority for this task:")
@@ -49,6 +56,7 @@ def add_priority():
         except ValueError:
             print("Invalid input, please enter a number.")
 
+#deadline handling function
 def get_deadline():
     while True:
         print("Enter deadline for this task")
@@ -63,6 +71,7 @@ def get_deadline():
             print(deadline_date)
             today_date = datetime.today().date()
 
+            #checks if the deadline date is in the future or not
             if deadline_date > today_date:
                return deadline_date
             else:
@@ -175,6 +184,7 @@ def clear_completed_tasks():
         return
     completed_tasks.clear()
     print("Completed tasks cleared")
+
 # Main function to drive the program
 def main():
     while True:
